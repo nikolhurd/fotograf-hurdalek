@@ -8,6 +8,8 @@ I decided to give TypeScript a try even though I didn’t have deep TypeScript e
 
 ## Preview of the website
 
+[Live Preview](https://fotograf-hurdalek-6ywz.vercel.app/)
+
 ## Features
 
 - **Responsive Design**
