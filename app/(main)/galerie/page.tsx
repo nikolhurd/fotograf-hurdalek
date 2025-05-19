@@ -1,5 +1,5 @@
 import React from "react";
-import { client } from "../../../fotograf-hurdalek/.sanity/client.ts";
+import { client } from "@/sanityClient";
 import { Photo } from "react-photo-album";
 import GalleryGrid from "@/app/components/GalleryGrid";
 import type { Metadata } from "next";

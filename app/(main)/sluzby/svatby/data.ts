@@ -1,4 +1,3 @@
-// Importujeme potřebné typy (cesta je nyní relativní k této složce)
 import type { PricingOption } from "../../../components/PricingSection";
 import type { PricingListItem } from "../../../components/PricingList";
 
