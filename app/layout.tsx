@@ -32,6 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
+      <head>
+        <meta name="robots" content="noindex, nofollow" />
+      </head>
       <body className={`${geistSans.variable} ${martel.variable} antialiased`}>
         {children}
       </body>
