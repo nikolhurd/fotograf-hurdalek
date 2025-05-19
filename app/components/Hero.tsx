@@ -1,4 +1,3 @@
-// components/HeroV2.tsx
 "use client";
 
 import React from "react";
@@ -7,8 +6,6 @@ import WavyUnderline from "./WavyUnderline";
 
 const Hero: React.FC = () => {
   return (
-    // Sekce zabírající minimálně výšku obrazovky, tmavé pozadí
-    // Použití flexboxu pro centrování obsahu vertikálně i horizontálně
     <section className=" flex items-center justify-center text-center text-white px-10 py-30">
       <div>
         {/* Hlavní nadpis */}
@@ -28,7 +25,7 @@ const Hero: React.FC = () => {
           fotograf z Náchoda
           <WavyUnderline
             color="red"
-            className="drop-shadow-xl drop-shadow-gray-300/50"
+            className="drop-shadow-m drop-shadow-gray-300/50"
           />
         </h1>
 
