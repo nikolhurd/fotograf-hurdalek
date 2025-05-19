@@ -3,7 +3,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import Aurora from "@/ReactBits/Aurora/Aurora";
 
 // Import sub-components
 import NavbarLogo from "./NavbarLogo";

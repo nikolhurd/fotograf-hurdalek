@@ -48,9 +48,9 @@ export default function AboutMePage() {
                 fotky, které zachytí tu správnou atmosféru.
               </p>
               <p>
-                Občas si od dětí "odskočím" i k focení reportáží, svateb nebo
-                plesů.Pokud vás má práce zaujala a hledáte spolehlivého
-                fotografa s citem pro práci s dětmi, neváhejte mě kontaktovat.
+                Občas si fotím i reportáže, svatby nebo plesy.Pokud vás má práce
+                zaujala a hledáte spolehlivého fotografa s citem pro práci s
+                dětmi, neváhejte mě kontaktovat.
               </p>
             </div>
           </div>

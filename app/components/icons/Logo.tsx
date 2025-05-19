@@ -1,10 +1,7 @@
 // components/icons/Logo.tsx
 import * as React from "react";
 
-// Define props if you want to pass className, etc.
-interface LogoProps extends React.SVGProps<SVGSVGElement> {}
-
-const Logo: React.FC<LogoProps> = (props) => (
+const Logo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     viewBox="110 130 385 100"
     fill="currentColor"

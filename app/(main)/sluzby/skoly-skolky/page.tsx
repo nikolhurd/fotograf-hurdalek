@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { PricingList, PricingListItem } from "../../../components/PricingList";
 import GalleryGrid from "../../../components/GalleryGrid";
 import { getGalleryPhotosByCategory } from "@/studio/lib/utils";
+import { Photo } from "react-photo-album";
 
 // Metadata pro stránku
 export const metadata: Metadata = {
@@ -75,7 +76,7 @@ export default async function SkolySkolkyPage() {
   const renderThemeSection = (
     title: string,
     description: string,
-    photos: any[],
+    photos: Photo[],
     pricingItems: PricingListItem[]
   ) => (
     <section

@@ -38,7 +38,7 @@ const ServiceCardsSection: React.FC = () => {
           {services.map((service, index) => (
             <Link href={service.href} key={index} className="block group">
               <SpotlightCard
-                spotlightColor={service.spotlightColor as any}
+                spotlightColor={service.spotlightColor}
                 className="h-full group-hover:border-neutral-600 transition-colors duration-300"
               >
                 {/* Obsah karty */}

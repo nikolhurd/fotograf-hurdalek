@@ -1,7 +1,7 @@
 // components/Navbar/NavItem.tsx
 import React from "react";
 import Link from "next/link";
-import { NavItemType, DropdownItem } from "./types"; // Relative path
+import { NavItemType } from "./types"; // Relative path
 
 interface NavItemProps {
   /** The navigation item data */
