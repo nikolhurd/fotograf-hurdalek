@@ -1,23 +1,28 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Martel } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar/Navbar";
-import { Footer } from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const martel = Martel({
+  variable: "--font-martel",
   subsets: ["latin"],
+  weight: ["200", "400", "600", "700"],
+  style: ["normal"],
 });
 
 export const metadata: Metadata = {
   title: "Fotograf Hurdálek",
   description:
     "Profesionální fotograf z Královehradeckého kraje - Svatby, Školní focení, Reportáže",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function RootLayout({
@@ -27,12 +32,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
+      <body className={`${geistSans.variable} ${martel.variable} antialiased`}>
         {children}
-        <Footer />
       </body>
     </html>
   );
