@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { PricingSection2Col } from "@/app/components/PricingSection2col";
 import { PricingOption } from "@/app/components/PricingSection";
 import GalleryGrid from "../../../components/GalleryGrid";
-import { getGalleryPhotosByCategory } from "../../../../fotograf-hurdalek/.sanity/utils";
+import { getGalleryPhotosByCategory } from "@/sanityUtils";
 
 export const metadata: Metadata = {
   title: "Fotografování Maturitních plesů | Martin Hurdálek",

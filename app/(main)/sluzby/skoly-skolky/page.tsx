@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 // Importujeme komponenty (uprav cesty podle potřeby)
 import { PricingList, PricingListItem } from "../../../components/PricingList";
 import GalleryGrid from "../../../components/GalleryGrid";
-import { getGalleryPhotosByCategory } from "../../../../fotograf-hurdalek/.sanity/utils";
+import { getGalleryPhotosByCategory } from "@/sanityUtils";
 
 // Metadata pro stránku
 export const metadata: Metadata = {

@@ -21,8 +21,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/sanityClient": ["fotograf-hurdalek/.sanity/client"],
-      "@/sanityUtils": ["fotograf-hurdalek/.sanity/utils"]
+      "@/sanityClient": ["studio/.sanity/client"],
+      "@/sanityUtils": ["studio/.sanity/utils"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
