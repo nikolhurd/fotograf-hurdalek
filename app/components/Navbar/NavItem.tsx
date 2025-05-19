@@ -38,11 +38,14 @@ const NavItem: React.FC<NavItemProps> = ({
     if (item.dropdown) {
       // Check if main path is a prefix OR if any dropdown item matches exactly or is a prefix
       return (
-        currentPathname.startsWith(item.path + "/") ||
+        // Check if the main path itself is active or a parent of the active path
+        (item.path !== "/" && currentPathname.startsWith(item.path + "/")) ||
+        // Check if any dropdown item is the active path or a parent of the active path
         item.dropdown.some(
           (subItem) =>
             currentPathname === subItem.path ||
-            currentPathname.startsWith(subItem.path + "/")
+            (subItem.path !== "/" &&
+              currentPathname.startsWith(subItem.path + "/"))
         )
       );
     }
@@ -52,17 +55,17 @@ const NavItem: React.FC<NavItemProps> = ({
 
   const active = isActive();
 
-  // Base classes for links/buttons
+  // Base classes for links/buttons - using your updated padding px-4 py-3
   const commonLinkClasses = `
-    px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ease-in-out relative block w-full text-left md:w-auto md:text-center
+    px-4 py-3 rounded-md text-sm font-medium transition-colors duration-200 ease-in-out relative block w-full text-left md:w-auto md:text-center
     ${
       active
         ? "text-white" // Active text color
-        : "text-gray-300 hover:bg-gray-700 hover:text-white md:hover:bg-transparent md:hover:text-white"
+        : "text-gray-200 hover:bg-red-900/30 hover:text-white md:hover:bg-transparent md:hover:text-white"
     }
   `;
 
-  // Active indicator shown only on desktop
+  // Active indicator shown only on desktop - using red-700 as per your code
   const activeIndicatorClass =
     !isMobile && active
       ? "after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-1 after:w-5 after:rounded-full after:bg-red-700"
@@ -109,30 +112,39 @@ const NavItem: React.FC<NavItemProps> = ({
           {/* --- Dropdown Menu --- */}
           {/* Desktop Dropdown */}
           {!isMobile && isDropdownOpen && (
+            // Přidáno overflow-hidden pro správné zaoblení rohů
+            // Použito bg-gray-800 a ring-gray-700 podle tvého kódu
             <ul
-              className="absolute left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 py-1 z-60"
-              // Keep open when hovering over the dropdown itself
+              className="absolute left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-gray-700 ring-opacity-5 z-60 overflow-hidden"
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              {item.dropdown.map((subItem) => (
-                <li key={subItem.path}>
-                  <Link
-                    href={subItem.path}
-                    onClick={onLinkClick} // Use parent's handler to close dropdown
-                    className={`block w-full text-left px-4 py-2 text-sm ${
-                      currentPathname === subItem.path ||
-                      currentPathname.startsWith(subItem.path + "/")
-                        ? "bg-gray-700 text-white"
-                        : "text-gray-300 hover:bg-gray-600 hover:text-white"
-                    } transition-colors duration-150`}
-                    // Add suppressHydrationWarning if link classes cause issues, but try to avoid
-                    // suppressHydrationWarning={true}
-                  >
-                    {subItem.name}
-                  </Link>
-                </li>
-              ))}
+              {item.dropdown.map((subItem) => {
+                // Znovu kontrolujeme aktivní stav pro každý subItem
+                const isSubItemActive =
+                  currentPathname === subItem.path ||
+                  currentPathname.startsWith(subItem.path + "/");
+                return (
+                  <li key={subItem.path}>
+                    <Link
+                      href={subItem.path}
+                      onClick={onLinkClick} // Use parent's handler to close dropdown
+                      // Použity tvé třídy pro aktivní a hover stavy
+                      className={`
+                        block w-full text-left px-4 py-2 text-sm
+                        transition-colors duration-150
+                        ${
+                          isSubItemActive
+                            ? "bg-red-700 text-white" // Aktivní styl
+                            : "text-gray-200 hover:bg-red-900/30 hover:text-white" // Neaktivní a hover styl (odebráno hover:border-red-600, protože Link nemá border)
+                        }
+                      `}
+                    >
+                      {subItem.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           )}
           {/* Mobile Dropdown (Accordion style) */}
@@ -143,13 +155,17 @@ const NavItem: React.FC<NavItemProps> = ({
                   <Link
                     href={subItem.path}
                     onClick={onLinkClick} // Use parent's handler to close mobile menu
-                    className={`block px-3 py-2 rounded-md text-sm font-medium ${
-                      currentPathname === subItem.path ||
-                      currentPathname.startsWith(subItem.path + "/")
-                        ? "bg-gray-700 text-white"
-                        : "text-gray-300 hover:bg-gray-600 hover:text-white"
-                    } transition-colors duration-150`}
-                    // suppressHydrationWarning={true}
+                    // Použity tvé třídy pro aktivní a hover stavy
+                    className={`
+                      block px-3 py-2 rounded-md text-sm font-medium
+                      transition-colors duration-150
+                      ${
+                        currentPathname === subItem.path ||
+                        currentPathname.startsWith(subItem.path + "/")
+                          ? "bg-red-700 text-white" // Aktivní styl
+                          : "text-gray-200 hover:bg-red-900/30 hover:text-white" // Neaktivní a hover styl
+                      }
+                    `}
                   >
                     {subItem.name}
                   </Link>
@@ -164,7 +180,6 @@ const NavItem: React.FC<NavItemProps> = ({
           href={item.path}
           className={`${commonLinkClasses} ${activeIndicatorClass}`}
           onClick={onLinkClick} // Use parent's handler to close mobile menu
-          // suppressHydrationWarning={true}
         >
           {item.name}
         </Link>

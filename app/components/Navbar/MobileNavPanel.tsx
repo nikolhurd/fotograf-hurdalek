@@ -4,17 +4,12 @@ import NavItem from "./NavItem"; // Relative path
 import { NavItemType } from "./types"; // Relative path
 
 interface MobileNavPanelProps {
-  /** Whether the panel is currently visible */
   isOpen: boolean;
-  /** Array of navigation items */
   navItems: NavItemType[];
-  /** The currently active pathname */
   currentPathname: string;
-  /** The path of the currently open mobile dropdown (or null) */
   openDropdownPath: string | null;
-  /** Function to toggle a mobile dropdown's open state */
   onDropdownToggle: (path: string) => void;
-  /** Function to call when any link is clicked (closes the panel) */
+
   onLinkClick: () => void;
 }
 
@@ -30,7 +25,7 @@ const MobileNavPanel: React.FC<MobileNavPanelProps> = ({
     <div
       className={`${
         isOpen ? "block" : "hidden"
-      } md:hidden absolute top-full left-0 w-full bg-gray-900/95 backdrop-blur-sm pb-3 z-40 shadow-lg border-t border-gray-700/50`}
+      } md:hidden absolute top-full left-0 w-full bg-gray-800/50 backdrop-blur-md pb-3 z-40 shadow-lg border-t border-gray-700/50`}
       id="mobile-menu"
     >
       <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
