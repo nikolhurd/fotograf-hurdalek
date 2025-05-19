@@ -1,5 +1,5 @@
 import React from "react";
-import { client } from "@/sanityClient";
+import { client } from "@/studio/lib/client";
 import { Photo } from "react-photo-album";
 import GalleryGrid from "@/app/components/GalleryGrid";
 import type { Metadata } from "next";

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { PricingSection2Col } from "@/app/components/PricingSection2col";
 import { PricingOption } from "@/app/components/PricingSection";
 import GalleryGrid from "../../../components/GalleryGrid";
-import { getGalleryPhotosByCategory } from "@/sanityUtils";
+import { getGalleryPhotosByCategory } from "@/studio/lib/utils";
 
 export const metadata: Metadata = {
   title: "Vítání občánků | Fotograf Martin Hurdálek",

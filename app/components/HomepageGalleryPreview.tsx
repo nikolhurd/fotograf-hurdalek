@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import GalleryGrid from "./GalleryGrid";
-import { getLatestPhotosForHomepage } from "@/studio/.sanity/utils";
+import { getLatestPhotosForHomepage } from "@/studio/lib/utils";
 
 const HomepageGalleryPreview: React.FC = async () => {
   // Načte 6 nejnovějších fotek z definovaných kategorií

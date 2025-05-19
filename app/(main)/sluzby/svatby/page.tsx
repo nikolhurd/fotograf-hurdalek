@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { PricingSection3Col } from "@/app/components/PricingSection3Col";
 import { PricingList } from "../../../components/PricingList";
 import GalleryGrid from "../../../components/GalleryGrid";
-import { getGalleryPhotosByCategory } from "@/sanityUtils";
+import { getGalleryPhotosByCategory } from "@/studio/lib/utils";
 import { weddingPricingOptions, weddingAddons } from "./data";
 
 export const metadata: Metadata = {

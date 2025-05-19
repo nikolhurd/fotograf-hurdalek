@@ -21,8 +21,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/sanityClient": ["studio/.sanity/client"],
-      "@/sanityUtils": ["studio/.sanity/utils"]
+      "@/sanityClient": ["studio/lib/client"],
+      "@/sanityUtils": ["studio/lib/utils"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

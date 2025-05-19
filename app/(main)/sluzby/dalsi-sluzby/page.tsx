@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { PricingList, PricingListItem } from "../../../components/PricingList"; // Cesta k PricingList
 import GalleryGrid from "../../../components/GalleryGrid";
-import { getGalleryPhotosByCategory } from "@/sanityUtils";
+import { getGalleryPhotosByCategory } from "@/studio/lib/utils";
 
 export const metadata: Metadata = {
   title: "Další Služby | Fotograf Martin Hurdálek",
